@@ -5,6 +5,7 @@ import no.acntech.project101.company.Company;
 import no.acntech.project101.company.service.CompanyService;
 import no.acntech.project101.employee.Employee;
 import no.acntech.project101.employee.service.EmployeeService;
+import org.apache.tomcat.jni.Local;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +60,30 @@ class EmployeeResourceTest {
     @Test
     void findById() throws Exception {
         //TODO: implement
+        final Employee ken = new Employee("Ken", "Guru", LocalDate.of(1994, 10, 1));
+        ken.setCompany(new Company("Test", "123456789"));
+        when(employeeService.findById(1L)).thenReturn(Optional.of(ken));
+
+        mockMvc.perform(MockMvcRequestBuilders
+                .get("/employees/{id}", 1)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andReturn();
     }
+
+
+    /*
+            final Company acme = new Company("ACME", "123456789");
+        when(companyService.findById(1L)).thenReturn(Optional.of(acme));
+        mockMvc.perform(MockMvcRequestBuilders
+                .get("/companies/{id}", 1)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andReturn();
+    }
+
+     */
+
 
     @Test
     void createEmployee() throws Exception {
@@ -81,6 +105,19 @@ class EmployeeResourceTest {
     @Test
     void deleteEmployee() throws Exception {
         //TODO: implement
+        final Employee employee = new Employee("Ken", "Arne", LocalDate.of(2004,04,2));
+        employee.setCompany(new Company("Accenture", "123456789"));
+        when(employeeService.findById(1L)).thenReturn(Optional.of(employee));
+
+        mockMvc.perform(MockMvcRequestBuilders
+                .delete("/employees/{id}", 1)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isAccepted())
+                .andReturn();
+
+
+
     }
 
     @Test
