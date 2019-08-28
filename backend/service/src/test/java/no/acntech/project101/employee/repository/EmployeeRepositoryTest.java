@@ -10,11 +10,11 @@ import no.acntech.project101.employee.config.EmployeeDatabaseConfig;
 
 //@DataJpaTest
 //@Import({EmployeeDatabaseConfig.class, CompanyDatabaseConfig.class})
-//@ContextConfiguration(classes = EmployeeRepository.class)
+//@ContextConfiguration(classes = EmployeeRepository.java.class)
 public class EmployeeRepositoryTest {
 
     //    @Autowired
-    //    private EmployeeRepository repository;
+    //    private EmployeeRepository.java repository;
 
     @Test
     void save() {
