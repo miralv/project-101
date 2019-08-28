@@ -83,7 +83,7 @@ public class EmployeeResource {
     @PostMapping
     public ResponseEntity createEmployee(@RequestBody final EmployeeDto employeeDto) {
         //TODO Create a POST endpoint that accepts an employeeDTO and saves it in the database
-    flinal URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+    final URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
             .path("/{id}")
             .buildAndExpand(2)
             .toUri();
@@ -108,4 +108,4 @@ public class EmployeeResource {
 
         return ResponseEntity.ok(empDto);
     }
-l}
+}
