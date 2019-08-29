@@ -28,6 +28,9 @@ class NavigationAppBar extends Component {
                         <NavItem>
                             <RouterNavLink to="/companies/" className="nav-link">Companies</RouterNavLink>
                         </NavItem>
+                        <NavItem>
+                            <RouterNavLink to="/employees/" className="nav-link">Employees</RouterNavLink>
+                        </NavItem>
                     </Nav>
                 </Collapse>
             </Navbar>

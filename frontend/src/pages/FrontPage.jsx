@@ -11,6 +11,7 @@ function FrontPage() {
             <hr className="my-2" />
             <p className="lead">
                 <Button tag={Link} color="primary" size="lg" to="/companies"><FaBuilding /> Companies</Button> {' '}
+                <Button tag={Link} color="primary" size="lg" to="/employees"><FaBuilding/> Employees </Button> {' '}
             </p>
         </Jumbotron>
     );
